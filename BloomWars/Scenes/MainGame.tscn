@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdb486pk62er2"]
+[gd_scene load_steps=17 format=3 uid="uid://bdb486pk62er2"]
 
 [ext_resource type="Texture2D" uid="uid://c3hqyq04y11tb" path="res://Assets/LightBG.png" id="1_myymi"]
 [ext_resource type="Script" path="res://Scenes/MainGame.gd" id="1_s0qov"]
 [ext_resource type="Texture2D" uid="uid://dxj4lr2187ex7" path="res://Assets/UISemiCircle4Light.png" id="2_tcnmq"]
+[ext_resource type="Script" path="res://Scripts/Label.gd" id="3_bswlg"]
 [ext_resource type="Texture2D" uid="uid://o8aad267hmvs" path="res://Assets/DarkBG.png" id="4_aj7nr"]
 [ext_resource type="FontFile" uid="uid://ck7n44exy53bg" path="res://Assets/Fonts/Gamer.ttf" id="5_h67eh"]
 [ext_resource type="Texture2D" uid="uid://dnti3g7n7lsb1" path="res://Assets/UISemiCircle4Dark.png" id="5_j07mi"]
@@ -80,7 +81,9 @@ columns = 5
 [node name="Label" type="Label" parent="DarkMode/GridContainerD"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
+script = ExtResource("3_bswlg")
 
 [node name="Label2" type="Label" parent="DarkMode/GridContainerD"]
 custom_minimum_size = Vector2(150, 150)
@@ -296,7 +299,9 @@ columns = 5
 [node name="Label" type="Label" parent="LightMode/GridContainerL"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_a43gy")
+script = ExtResource("3_bswlg")
 
 [node name="Label2" type="Label" parent="LightMode/GridContainerL"]
 custom_minimum_size = Vector2(150, 150)
@@ -482,5 +487,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_abijs")
 theme_override_styles/focus = SubResource("StyleBoxFlat_b1xo8")
 text = "EXIT"
 
+[connection signal="gui_input" from="DarkMode/GridContainerD/Label" to="DarkMode/GridContainerD/Label" method="_on_gui_input"]
 [connection signal="pressed" from="DarkMode/Exit2M" to="." method="_on_exit_2m_pressed"]
+[connection signal="gui_input" from="LightMode/GridContainerL/Label" to="LightMode/GridContainerL/Label" method="_on_gui_input"]
 [connection signal="pressed" from="LightMode/Exit2M" to="." method="_on_exit_2m_pressed"]

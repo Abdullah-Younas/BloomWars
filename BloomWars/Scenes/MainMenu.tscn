@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_afj6i"]
 [ext_resource type="FontFile" uid="uid://ck7n44exy53bg" path="res://Assets/Fonts/Gamer.ttf" id="3_3nack"]
 [ext_resource type="Script" path="res://Scripts/AudioControl.gd" id="4_bjmfv"]
+[ext_resource type="AudioStream" uid="uid://deqp4kowprer2" path="res://Assets/Vfx/BloomCalm.mp3" id="5_8epet"]
 [ext_resource type="Script" path="res://Scripts/CheckButton.gd" id="5_umdro"]
-[ext_resource type="AudioStream" uid="uid://bxrtxqdnnm3ty" path="res://Assets/Vfx/DrumLoopMP3.mp3" id="6_3rtje"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkp56"]
 bg_color = Color(0.996094, 0.898438, 0.460938, 1)
@@ -247,7 +247,7 @@ size_flags_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_47dgq")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_tbehd")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_o11ij")
-min_value = -60.0
+min_value = -35.0
 max_value = 0.0
 script = ExtResource("4_bjmfv")
 audio_bus_name = "Master"
@@ -320,7 +320,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_kno77")
 text = "BACK"
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_3rtje")
+stream = ExtResource("5_8epet")
 autoplay = true
 
 [node name="GameModePanel" type="Panel" parent="."]
