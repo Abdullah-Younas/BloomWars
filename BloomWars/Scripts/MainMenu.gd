@@ -5,7 +5,7 @@ extends Control
 @onready var music = $Music
 @onready var game_mode_panel = $GameModePanel
 
-# Called when the node enters the scene tree for the first time.
+# Called when the node enters the scene tree for the first time.gg
 func _ready():
 	game_mode_panel.visible = false
 	settings_panel.visible = false
