@@ -1,0 +1,436 @@
+[gd_scene load_steps=18 format=3 uid="uid://bms700jg2msq1"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_afj6i"]
+[ext_resource type="FontFile" uid="uid://ck7n44exy53bg" path="res://Assets/Fonts/Gamer.ttf" id="3_3nack"]
+[ext_resource type="Script" path="res://Scripts/AudioControl.gd" id="4_bjmfv"]
+[ext_resource type="Script" path="res://Scripts/CheckButton.gd" id="5_umdro"]
+[ext_resource type="AudioStream" uid="uid://bxrtxqdnnm3ty" path="res://Assets/Vfx/DrumLoopMP3.mp3" id="6_3rtje"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkp56"]
+bg_color = Color(0.996094, 0.898438, 0.460938, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3gbv"]
+content_margin_left = 10.0
+bg_color = Color(0.136719, 0.238281, 0.117188, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.996094, 0.898438, 0.460938, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6heyr"]
+bg_color = Color(0.992188, 0.894531, 0.460938, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.136719, 0.238281, 0.117188, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8p8j"]
+bg_color = Color(0.136719, 0.238281, 0.117188, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.992188, 0.894531, 0.460938, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_47dgq"]
+color = Color(0.992188, 0.894531, 0.460938, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_tbehd"]
+color = Color(0.992188, 0.894531, 0.460938, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_o11ij"]
+color = Color(0.992188, 0.894531, 0.460938, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f57ut"]
+bg_color = Color(0.136719, 0.238281, 0.117188, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_du13w"]
+bg_color = Color(0.992188, 0.894531, 0.460938, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6fn8"]
+bg_color = Color(0.992188, 0.894531, 0.460938, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64sse"]
+bg_color = Color(0.992188, 0.894531, 0.460938, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kno77"]
+bg_color = Color(0.992188, 0.894531, 0.460938, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_afj6i")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qkp56")
+
+[node name="MainBtns" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.5
+offset_top = -40.0
+offset_right = 229.5
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="MainBtns"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_fonts/font = ExtResource("3_3nack")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_b3gbv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6heyr")
+text = "START GAME"
+
+[node name="Settings" type="Button" parent="MainBtns"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_fonts/font = ExtResource("3_3nack")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_b3gbv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6heyr")
+text = "SETTINGS"
+
+[node name="Exit" type="Button" parent="MainBtns"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_fonts/font = ExtResource("3_3nack")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_b3gbv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6heyr")
+text = "EXIT"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.5
+offset_top = -450.0
+offset_right = 494.5
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_fonts/font = ExtResource("3_3nack")
+theme_override_font_sizes/font_size = 300
+text = "BLOOM WARS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -430.5
+offset_top = -170.0
+offset_right = 430.5
+offset_bottom = 332.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h8p8j")
+
+[node name="SettingsLabel" type="Label" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.0
+offset_top = -286.0
+offset_right = 325.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/shadow_outline_size = 15
+theme_override_fonts/font = ExtResource("3_3nack")
+theme_override_font_sizes/font_size = 120
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.5
+offset_top = -118.0
+offset_right = 286.5
+offset_bottom = 222.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsLabel" type="Label" parent="SettingsPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_3nack")
+theme_override_font_sizes/font_size = 50
+text = "VOLUME"
+vertical_alignment = 1
+
+[node name="AudioControl" type="HSlider" parent="SettingsPanel/VBoxContainer/SettingsLabel"]
+layout_mode = 2
+offset_top = 48.0
+offset_right = 573.0
+offset_bottom = 64.0
+size_flags_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_47dgq")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_tbehd")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_o11ij")
+min_value = -60.0
+max_value = 0.0
+script = ExtResource("4_bjmfv")
+audio_bus_name = "Master"
+
+[node name="CheckButton" type="CheckButton" parent="SettingsPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_pressed_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_hover_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_focus_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_disabled_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_outline_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_fonts/font = ExtResource("3_3nack")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_f57ut")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f57ut")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_f57ut")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f57ut")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_f57ut")
+theme_override_styles/focus = SubResource("StyleBoxFlat_f57ut")
+button_pressed = true
+text = "FullScreen"
+script = ExtResource("5_umdro")
+
+[node name="OptionButton" type="OptionButton" parent="SettingsPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_pressed_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_hover_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_focus_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_disabled_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_outline_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_fonts/font = ExtResource("3_3nack")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_b3gbv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b3gbv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b3gbv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b3gbv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_b3gbv")
+item_count = 4
+selected = 0
+popup/item_0/text = "Ultra-High"
+popup/item_0/id = 0
+popup/item_1/text = "High"
+popup/item_1/id = 1
+popup/item_2/text = "Medium"
+popup/item_2/id = 2
+popup/item_3/text = "Low"
+popup/item_3/id = 3
+
+[node name="Back" type="Button" parent="SettingsPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_focus_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_fonts/font = ExtResource("3_3nack")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_b3gbv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_du13w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b6fn8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_64sse")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kno77")
+text = "BACK"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_3rtje")
+autoplay = true
+
+[node name="GameModePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -430.5
+offset_top = -170.0
+offset_right = 430.5
+offset_bottom = 332.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h8p8j")
+
+[node name="GameModeLabel" type="Label" parent="GameModePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.0
+offset_top = -286.0
+offset_right = 325.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/shadow_outline_size = 15
+theme_override_fonts/font = ExtResource("3_3nack")
+theme_override_font_sizes/font_size = 120
+text = "GAME MODE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainBtns2" type="VBoxContainer" parent="GameModePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.5
+offset_top = -121.0
+offset_right = 229.5
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PVP" type="Button" parent="GameModePanel/MainBtns2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_fonts/font = ExtResource("3_3nack")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_b3gbv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6heyr")
+text = "FRIEND"
+
+[node name="PVPC" type="Button" parent="GameModePanel/MainBtns2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_fonts/font = ExtResource("3_3nack")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_b3gbv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6heyr")
+text = "COMPUTER
+"
+
+[node name="BackMode" type="Button" parent="GameModePanel/MainBtns2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_fonts/font = ExtResource("3_3nack")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_b3gbv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_6heyr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6heyr")
+text = "BACK
+"
+
+[connection signal="pressed" from="MainBtns/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainBtns/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MainBtns/Exit" to="." method="_on_exit_pressed"]
+[connection signal="value_changed" from="SettingsPanel/VBoxContainer/SettingsLabel/AudioControl" to="SettingsPanel/VBoxContainer/SettingsLabel/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="SettingsPanel/VBoxContainer/CheckButton" to="SettingsPanel/VBoxContainer/CheckButton" method="_on_toggled"]
+[connection signal="pressed" from="SettingsPanel/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="finished" from="Music" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="pressed" from="GameModePanel/MainBtns2/PVP" to="." method="_on_pvp_pressed"]
+[connection signal="pressed" from="GameModePanel/MainBtns2/PVPC" to="." method="_on_pvpc_pressed"]
+[connection signal="pressed" from="GameModePanel/MainBtns2/BackMode" to="." method="_on_back_mode_pressed"]

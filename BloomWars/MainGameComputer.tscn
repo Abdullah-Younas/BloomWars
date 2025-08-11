@@ -1,0 +1,130 @@
+[gd_scene load_steps=9 format=3 uid="uid://yod3owo48ty7"]
+
+[ext_resource type="Texture2D" uid="uid://c3hqyq04y11tb" path="res://Assets/LightBG.png" id="1_eeg73"]
+[ext_resource type="Texture2D" uid="uid://dxj4lr2187ex7" path="res://Assets/UISemiCircle4Light.png" id="2_pb0lf"]
+[ext_resource type="Texture2D" uid="uid://c1ujabseij35u" path="res://Assets/Grid4Light.png" id="3_q1omu"]
+[ext_resource type="Texture2D" uid="uid://o8aad267hmvs" path="res://Assets/DarkBG.png" id="4_6duks"]
+[ext_resource type="Texture2D" uid="uid://dnti3g7n7lsb1" path="res://Assets/UISemiCircle4Dark.png" id="5_csqsn"]
+[ext_resource type="Texture2D" uid="uid://u0wgx85tdojw" path="res://Assets/Grid4Dark.png" id="6_eul65"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k7myt"]
+texture = ExtResource("1_eeg73")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0321f"]
+texture = ExtResource("4_6duks")
+
+[node name="Computer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LightMode" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_k7myt")
+
+[node name="ExitButton" type="TextureRect" parent="LightMode"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -200.0
+offset_right = 410.001
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_pb0lf")
+
+[node name="ScoreBoard" type="TextureRect" parent="LightMode"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 410.0
+offset_bottom = 500.0
+grow_horizontal = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_pb0lf")
+flip_v = true
+
+[node name="TextureRect" type="TextureRect" parent="LightMode"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -360.0
+offset_right = 441.0
+offset_bottom = 441.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_q1omu")
+
+[node name="DarkMode" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0321f")
+
+[node name="ExitButton" type="TextureRect" parent="DarkMode"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -200.0
+offset_right = 410.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_csqsn")
+
+[node name="ScoreBoard" type="TextureRect" parent="DarkMode"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_top = 8.0
+offset_right = 410.0
+offset_bottom = 508.0
+grow_horizontal = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_csqsn")
+flip_v = true
+
+[node name="TextureRect" type="TextureRect" parent="DarkMode"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -360.0
+offset_right = 441.0
+offset_bottom = 441.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_eul65")
