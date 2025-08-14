@@ -3,7 +3,7 @@ extends Label
 
 var click_count: int = 0
 var current_texture: Texture2D = null
-var bg_color: Color = Color(0.137, 0.239, 0.118) # white background
+var bg_color: Color = Color(0.992, 0.902, 0.494, 0) # white background
 
 func _ready() -> void:
 	_apply_style(bg_color)
@@ -28,6 +28,8 @@ func get_color() -> Color:
 func _apply_style(c: Color) -> void:
 	var style := StyleBoxFlat.new()
 	style.bg_color = c
+	style.border_color = Color(0.141, 0.239, 0.122)
+	style.set_border_width_all(5)
 	style.set_corner_radius_all(10)
 	add_theme_stylebox_override("normal", style)
 

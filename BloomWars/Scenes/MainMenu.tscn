@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://bms700jg2msq1"]
+[gd_scene load_steps=19 format=3 uid="uid://bms700jg2msq1"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_afj6i"]
 [ext_resource type="FontFile" uid="uid://ck7n44exy53bg" path="res://Assets/Fonts/Gamer.ttf" id="3_3nack"]
 [ext_resource type="Script" path="res://Scripts/AudioControl.gd" id="4_bjmfv"]
 [ext_resource type="AudioStream" uid="uid://deqp4kowprer2" path="res://Assets/Vfx/BloomCalm.mp3" id="5_8epet"]
 [ext_resource type="Script" path="res://Scripts/CheckButton.gd" id="5_umdro"]
+[ext_resource type="AudioStream" uid="uid://b5jw7bnop86r2" path="res://Assets/Vfx/ClickAndSplit.wav" id="6_1v62f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkp56"]
 bg_color = Color(0.996094, 0.898438, 0.460938, 1)
@@ -423,6 +424,9 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_6heyr")
 theme_override_styles/focus = SubResource("StyleBoxFlat_6heyr")
 text = "BACK
 "
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_1v62f")
 
 [connection signal="pressed" from="MainBtns/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MainBtns/Settings" to="." method="_on_settings_pressed"]

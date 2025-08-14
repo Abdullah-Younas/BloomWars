@@ -1,5 +1,6 @@
 extends Control
 
+var ai_enabled := true  # set to false for PvP
 @onready var grid_container_d = $BackGround/GridContainerD
 @onready var back_ground = $BackGround
 @onready var click = $Click
@@ -14,11 +15,11 @@ extends Control
 @onready var Poison02 = preload("res://Assets/Textures/Plants/Poison002.png")
 @onready var Poison03 = preload("res://Assets/Textures/Plants/Poison004.png")
 @onready var Poison04 = preload("res://Assets/Textures/Plants/Poison006.png")
+
 var light_first_move_made := false
 var dark_first_move_made := false
 var LightColor = Color(0.996, 0.906, 0.494)
 var DarkColor = Color(0.137, 0.239, 0.118)
-var bg_color: Color = Color(1,1,1,1) # white
 var rows = 5
 var cols = 5
 var light_turn := true
@@ -27,12 +28,7 @@ var grid = []
 var pending_explosions: Array = []
 var processing_explosions: bool = false
 
-
-
-func end_turn():
-	current_player = 2 if current_player == 1 else 1
-	print("Player", current_player, "turn!")
-
+# Label refs
 @onready var D00 = $BackGround/GridContainerD/Label
 @onready var D01 = $BackGround/GridContainerD/Label2
 @onready var D02 = $BackGround/GridContainerD/Label3
@@ -60,7 +56,6 @@ func end_turn():
 @onready var D24 = $BackGround/GridContainerD/Label25
 
 func _ready():
-	# Fill grid with label references
 	grid = [
 		[D00, D01, D02, D03, D04],
 		[D05, D06, D07, D08, D09],
@@ -70,23 +65,22 @@ func _ready():
 	]
 	var i = 0
 	for r in range(rows):
-		grid.append([])
 		for c in range(cols):
 			var cell = grid_container_d.get_child(i)
 			cell.click_count = 0
-			cell.set_texture(null) # Start with no texture
+			cell.set_texture(null)
 			cell.connect("gui_input", Callable(self, "_on_cell_clicked").bind(r, c))
-			grid[r].append(cell)
+			grid[r][c] = cell
 			i += 1
-	
+
 func _on_cell_clicked(event: InputEvent, r, c):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		var cell = grid[r][c]
 		var cell_texture = cell.get_texture()
 
-		# First move validation
+		# First move rules
 		if cell_texture == null:
-			if light_turn and light_first_move_made: 
+			if light_turn and light_first_move_made:
 				fail_click.play()
 				_shake_cell(cell)
 				return
@@ -95,29 +89,27 @@ func _on_cell_clicked(event: InputEvent, r, c):
 				_shake_cell(cell)
 				return
 		else:
-			# Ownership validation
+			# Must click own cell
 			if light_turn:
-				if cell_texture not in [Flower01, Flower02, Flower03, Flower04]: 
+				if cell_texture not in [Flower01, Flower02, Flower03, Flower04]:
 					fail_click.play()
 					_shake_cell(cell)
 					return
 			else:
-				if cell_texture not in [Poison01, Poison02, Poison03, Poison04]: 
+				if cell_texture not in [Poison01, Poison02, Poison03, Poison04]:
 					fail_click.play()
 					_shake_cell(cell)
 					return
 
-		# If we reach here, click was valid
 		click.play()
 
-		# Mark first move
+		# Mark first move done
 		if cell_texture == null:
 			if light_turn: light_first_move_made = true
 			else: dark_first_move_made = true
-		
-		# Growth logic
+
+		# Growth
 		cell.click_count += 1
-		
 		if light_turn:
 			match cell.click_count:
 				1: cell.set_texture(Flower01)
@@ -138,6 +130,7 @@ func _on_cell_clicked(event: InputEvent, r, c):
 					_explode(r, c, false, [Poison01, Poison02, Poison03, Poison04])
 					switch_turn()
 					return
+
 		switch_turn()
 
 func _shake_cell(cell):
@@ -145,36 +138,6 @@ func _shake_cell(cell):
 	tween.tween_property(cell, "position:x", cell.position.x + 5, 0.05)
 	tween.tween_property(cell, "position:x", cell.position.x - 5, 0.05)
 	tween.tween_property(cell, "position:x", cell.position.x, 0.05)
-
-
-func _process_explosion_queue():
-	if pending_explosions.is_empty():
-		processing_explosions = false
-		return
-
-	processing_explosions = true
-
-	# Take all explosions currently queued as this "wave"
-	var current_wave = pending_explosions.duplicate()
-	pending_explosions.clear()
-
-	# Run them all at once
-	for data in current_wave:
-		_explode(data.r, data.c, data.is_flower, data.textures)
-
-	# Wait for all animations of this wave to complete before next
-	await get_tree().create_timer(1.5).timeout
-	_process_explosion_queue()
-
-func queue_explosion(r, c, is_flower, textures):
-	pending_explosions.append({
-		"r": r,
-		"c": c,
-		"is_flower": is_flower,
-		"textures": textures
-	})
-	if not processing_explosions:
-		_process_explosion_queue()
 
 func _explode(r, c, is_flower, textures):
 	var cell = grid[r][c]
@@ -241,15 +204,89 @@ func _explode(r, c, is_flower, textures):
 					neighbor.set_texture(textures[min(neighbor.click_count - 1, 3)])
 					neighbor.position += pos_offset
 					tween.tween_property(neighbor, "position", neighbor.position - pos_offset, 0.3)
+
+
 func switch_turn():
 	light_turn = !light_turn
-	if(light_turn):
-		rich_text_label.text = "  PLAYER 1"
-	else:
-		rich_text_label.text = "  PLAYER 2"
-		
+	if ai_enabled and not light_turn:
+		if check_game_over():
+			print("AI wins!")
+			return
+		get_tree().create_timer(0.8).timeout.connect(func ():
+			ai_make_move()
+		)
 
-func _on_exit_2m_pressed():
-	click.play()	
-	await get_tree().create_timer(.2).timeout	
-	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+func check_game_over():
+	for r in range(rows):
+		for c in range(cols):
+			if grid[r][c].get_texture() in [Flower01, Flower02, Flower03, Flower04]:
+				return false
+	return true
+
+# -------- AI WITH FORESIGHT --------
+func ai_make_move():
+	var best_move = null
+	var best_score = -99999
+
+	for r in range(rows):
+		for c in range(cols):
+			var cell = grid[r][c]
+			if cell.get_texture() in [Poison01, Poison02, Poison03, Poison04]:
+				# Simulate this move
+				var score = simulate_move(r, c)
+				if score > best_score:
+					best_score = score
+					best_move = Vector2i(r, c)
+
+	if best_move != null:
+		fake_click(best_move.x, best_move.y)
+
+# Simulate move and return score
+func simulate_move(r, c):
+	var score = 0
+	var cell = grid[r][c]
+	var before_flower_count = count_flowers()
+
+	# "What if" scenario: +1 click_count, possible explosion
+	var fake_count = cell.click_count + 1
+	if fake_count >= 5:
+		# Big explosion = high score
+		score += 5
+		# Bonus for hitting flowers
+		score += count_adjacent_flowers(r, c) * 3
+	else:
+		# Smaller growth = lower score
+		score += fake_count
+		# Bonus if this sets up attack next turn
+		if count_adjacent_flowers(r, c) > 0:
+			score += 2
+
+	# Extra foresight: fewer flowers after this move = better
+	var after_flower_count = max(0, before_flower_count - count_adjacent_flowers(r, c))
+	score += (before_flower_count - after_flower_count) * 2
+
+	return score
+
+func count_flowers():
+	var count = 0
+	for r in range(rows):
+		for c in range(cols):
+			if grid[r][c].get_texture() in [Flower01, Flower02, Flower03, Flower04]:
+				count += 1
+	return count
+
+func count_adjacent_flowers(r, c):
+	var count = 0
+	for offset in [[0,-1],[0,1],[-1,0],[1,0]]:
+		var nr = r + offset[0]
+		var nc = c + offset[1]
+		if nr >= 0 and nr < rows and nc >= 0 and nc < cols:
+			if grid[nr][nc].get_texture() in [Flower01, Flower02, Flower03, Flower04]:
+				count += 1
+	return count
+
+func fake_click(r, c):
+	var ev = InputEventMouseButton.new()
+	ev.button_index = MOUSE_BUTTON_LEFT
+	ev.pressed = true
+	_on_cell_clicked(ev, r, c)
