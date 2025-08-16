@@ -208,27 +208,29 @@ func _explode(r, c, is_flower, textures):
 			if neighbor_texture == null:
 				# Grow new seed
 				neighbor.click_count = 1
-				neighbor.set_texture(textures[0])
-				neighbor.position += pos_offset
-				tween.tween_property(neighbor, "position", neighbor.position - pos_offset, 0.3)
+				neighbor.set_texture(textures[0])  # always stage 1 on spawn
+				neighbor.scale = Vector2(1.2, 1.2)
+				tween.tween_property(neighbor, "scale", Vector2(1, 1), 0.3)
+
+				# After tween finishes, upgrade texture if needed
+				tween.tween_callback(Callable(self, "_finalize_growth")
+					.bind(neighbor, is_flower, textures))
 
 			elif (is_flower and neighbor_texture in [Poison01, Poison02, Poison03, Poison04]) \
 			   or (not is_flower and neighbor_texture in [Flower01, Flower02, Flower03, Flower04]):
 
-				# Enemy cell takeover
 				if neighbor.click_count >= 4:
-					# Convert to our type at level 4
 					neighbor.click_count = 4
-					neighbor.set_texture(textures[3])  # stage 4 of the attacker type
-					
-					# Wait then explode
+					neighbor.set_texture(textures[3])  # stage 4 of attacker type
 					await get_tree().create_timer(1.0).timeout
 					_explode(nr, nc, is_flower, textures)
 				else:
 					neighbor.click_count += 1
-					neighbor.set_texture(textures[min(neighbor.click_count - 1, 3)])
-					neighbor.position += pos_offset
-					tween.tween_property(neighbor, "position", neighbor.position - pos_offset, 0.3)
+					neighbor.set_texture(textures[0])  # always start split as stage 1
+					neighbor.scale = Vector2(1.2, 1.2)
+					tween.tween_property(neighbor, "scale", Vector2(1, 1), 0.3)
+					tween.tween_callback(Callable(self, "_finalize_growth")
+						.bind(neighbor, is_flower, textures))
 
 			else:
 				# Friendly cell
@@ -238,9 +240,18 @@ func _explode(r, c, is_flower, textures):
 					var neighbor_textures = [Flower01, Flower02, Flower03, Flower04] if is_neighbor_flower else [Poison01, Poison02, Poison03, Poison04]
 					_explode(nr, nc, is_neighbor_flower, neighbor_textures)
 				else:
-					neighbor.set_texture(textures[min(neighbor.click_count - 1, 3)])
-					neighbor.position += pos_offset
-					tween.tween_property(neighbor, "position", neighbor.position - pos_offset, 0.3)
+					neighbor.set_texture(textures[0])  # always stage 1 while moving
+					neighbor.scale = Vector2(1.2, 1.2)
+					tween.tween_property(neighbor, "scale", Vector2(1, 1), 0.3)
+					tween.tween_callback(Callable(self, "_finalize_growth")
+						.bind(neighbor, is_flower, textures))
+
+
+func _finalize_growth(cell, is_flower: bool, textures: Array):
+	# Ensure texture matches click_count AFTER tween ends
+	var index = clamp(cell.click_count - 1, 0, 3)
+	cell.set_texture(textures[index])
+
 func switch_turn():
 	light_turn = !light_turn
 	if(light_turn):

@@ -95,6 +95,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qkp56")
 
 [node name="MainBtns" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -177,7 +178,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SettingsPanel" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -275,34 +275,6 @@ button_pressed = true
 text = "FullScreen"
 script = ExtResource("5_umdro")
 
-[node name="OptionButton" type="OptionButton" parent="SettingsPanel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 2
-theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
-theme_override_colors/font_pressed_color = Color(0.992188, 0.894531, 0.460938, 1)
-theme_override_colors/font_hover_color = Color(0.992188, 0.894531, 0.460938, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.992188, 0.894531, 0.460938, 1)
-theme_override_colors/font_focus_color = Color(0.992188, 0.894531, 0.460938, 1)
-theme_override_colors/font_disabled_color = Color(0.992188, 0.894531, 0.460938, 1)
-theme_override_colors/font_outline_color = Color(0.992188, 0.894531, 0.460938, 1)
-theme_override_fonts/font = ExtResource("3_3nack")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxFlat_b3gbv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_b3gbv")
-theme_override_styles/hover = SubResource("StyleBoxFlat_b3gbv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b3gbv")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_b3gbv")
-item_count = 4
-selected = 0
-popup/item_0/text = "Ultra-High"
-popup/item_0/id = 0
-popup/item_1/text = "High"
-popup/item_1/id = 1
-popup/item_2/text = "Medium"
-popup/item_2/id = 2
-popup/item_3/text = "Low"
-popup/item_3/id = 3
-
 [node name="Back" type="Button" parent="SettingsPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 2
@@ -325,6 +297,7 @@ stream = ExtResource("5_8epet")
 autoplay = true
 
 [node name="GameModePanel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
