@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdb486pk62er2"]
+[gd_scene load_steps=21 format=3 uid="uid://bdb486pk62er2"]
 
 [ext_resource type="Script" path="res://Scenes/MainGame.gd" id="1_s0qov"]
 [ext_resource type="Script" path="res://Scripts/Label.gd" id="3_bswlg"]
@@ -13,15 +13,16 @@ bg_color = Color(0.984375, 0.894531, 0.492188, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ajusl"]
 bg_color = Color(0.988235, 0.898039, 0.494118, 0)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0.141176, 0.239216, 0.121569, 1)
 corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
+corner_detail = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmnge"]
 bg_color = Color(0.141176, 0.239216, 0.121569, 0)
@@ -37,6 +38,44 @@ bg_color = Color(0.141176, 0.239216, 0.121569, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1xo8"]
 bg_color = Color(0.141176, 0.239216, 0.121569, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yyfpy"]
+bg_color = Color(0.136719, 0.238281, 0.117188, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.992188, 0.894531, 0.460938, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1wb7"]
+content_margin_left = 10.0
+bg_color = Color(0.136719, 0.238281, 0.117188, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.996094, 0.898438, 0.460938, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xr00h"]
+bg_color = Color(0.992188, 0.894531, 0.460938, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1e6v"]
+bg_color = Color(0.992188, 0.894531, 0.460938, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sy0tv"]
+bg_color = Color(0.992188, 0.894531, 0.460938, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qpocd"]
+bg_color = Color(0.992188, 0.894531, 0.460938, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -63,10 +102,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -395.0
-offset_top = -395.0
-offset_right = 395.0
-offset_bottom = 395.0
+offset_left = -145.0
+offset_top = -145.0
+offset_right = 145.0
+offset_bottom = 145.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 10
@@ -74,176 +113,201 @@ theme_override_constants/v_separation = 10
 columns = 5
 
 [node name="Label" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label2" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label3" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label4" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label5" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label6" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label7" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label8" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label9" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label10" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label11" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label12" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label13" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label14" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label15" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label16" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label17" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label18" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label19" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label20" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label21" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label22" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label23" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label24" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
 
 [node name="Label25" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajusl")
 script = ExtResource("3_bswlg")
@@ -255,13 +319,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -90.0
-offset_top = -200.0
-offset_right = 410.0
-offset_bottom = 300.0
+offset_left = -75.0
+offset_top = -150.0
+offset_right = 425.0
+offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_xkkia")
 
 [node name="Exit2M" type="Button" parent="BackGround/ExitButton"]
@@ -304,11 +368,11 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -100.0
-offset_right = 400.0
+offset_left = -75.0
+offset_right = 425.0
 offset_bottom = 500.0
 grow_horizontal = 2
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_xkkia")
 flip_v = true
 
@@ -317,8 +381,8 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -230.0
-offset_right = 226.0
+offset_left = -278.5
+offset_right = 278.5
 offset_bottom = 115.0
 grow_horizontal = 2
 theme_override_colors/default_color = Color(0.988235, 0.898039, 0.494118, 1)
@@ -330,8 +394,73 @@ theme_override_colors/table_odd_row_bg = Color(0.988281, 0.898438, 0.492188, 1)
 theme_override_colors/table_even_row_bg = Color(0.988281, 0.898438, 0.492188, 1)
 theme_override_colors/table_border = Color(0.988281, 0.898438, 0.492188, 1)
 theme_override_fonts/normal_font = ExtResource("5_h67eh")
-theme_override_font_sizes/normal_font_size = 115
+theme_override_font_sizes/normal_font_size = 130
 text = "  PLAYER 1"
+
+[node name="GameWonPanel" type="Panel" parent="BackGround"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -266.5
+offset_top = -151.0
+offset_right = 266.5
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yyfpy")
+
+[node name="GameWonLabel" type="Label" parent="BackGround/GameWonPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -198.5
+offset_right = 198.5
+offset_bottom = 83.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/shadow_outline_size = 15
+theme_override_fonts/font = ExtResource("5_h67eh")
+theme_override_font_sizes/font_size = 100
+text = "YOUU WON!!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/GameWonPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = 37.0
+offset_right = 172.5
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="Back" type="Button" parent="BackGround/GameWonPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
+theme_override_colors/font_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_focus_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_fonts/font = ExtResource("5_h67eh")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_o1wb7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xr00h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k1e6v")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_sy0tv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qpocd")
+text = "EXIT"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_msfad")
@@ -344,3 +473,4 @@ stream = ExtResource("6_y0pdg")
 stream = ExtResource("7_ctgp3")
 
 [connection signal="pressed" from="BackGround/ExitButton/Exit2M" to="." method="_on_exit_2m_pressed"]
+[connection signal="pressed" from="BackGround/GameWonPanel/VBoxContainer/Back" to="." method="_on_back_pressed"]

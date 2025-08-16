@@ -9,7 +9,7 @@ func _ready() -> void:
 	_apply_style(bg_color)
 	vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	custom_minimum_size = Vector2(150, 150) # Match your texture size
+	custom_minimum_size = Vector2(70, 70) # Match your texture size
 
 func set_texture(texture: Texture2D) -> void:
 	current_texture = texture
@@ -29,7 +29,7 @@ func _apply_style(c: Color) -> void:
 	var style := StyleBoxFlat.new()
 	style.bg_color = c
 	style.border_color = Color(0.141, 0.239, 0.122)
-	style.set_border_width_all(5)
+	style.set_border_width_all(2.5)
 	style.set_corner_radius_all(10)
 	add_theme_stylebox_override("normal", style)
 

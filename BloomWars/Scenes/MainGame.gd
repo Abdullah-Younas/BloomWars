@@ -5,7 +5,9 @@ extends Control
 @onready var click = $Click
 @onready var fail_click = $FailClick
 @onready var rich_text_label = $BackGround/ScoreBoard/RichTextLabel
-
+@onready var game_won_panel = $BackGround/GameWonPanel
+@onready var game_won_label = $BackGround/GameWonPanel/GameWonLabel
+var move_count := 0
 @onready var Flower01 = preload("res://Assets/Textures/Plants/Flower01.png")
 @onready var Flower02 = preload("res://Assets/Textures/Plants/Flower02.png")
 @onready var Flower03 = preload("res://Assets/Textures/Plants/Flower03.png")
@@ -60,6 +62,7 @@ func end_turn():
 @onready var D24 = $BackGround/GridContainerD/Label25
 
 func _ready():
+	game_won_panel.visible = false
 	# Fill grid with label references
 	grid = [
 		[D00, D01, D02, D03, D04],
@@ -126,6 +129,7 @@ func _on_cell_clicked(event: InputEvent, r, c):
 				4: cell.set_texture(Flower04)
 				5:
 					_explode(r, c, true, [Flower01, Flower02, Flower03, Flower04])
+					await get_tree().create_timer(1).timeout	
 					switch_turn()
 					return
 		else:
@@ -136,45 +140,21 @@ func _on_cell_clicked(event: InputEvent, r, c):
 				4: cell.set_texture(Poison04)
 				5:
 					_explode(r, c, false, [Poison01, Poison02, Poison03, Poison04])
+					await get_tree().create_timer(1).timeout	
 					switch_turn()
 					return
 		switch_turn()
 
 func _shake_cell(cell):
 	var tween = create_tween()
-	tween.tween_property(cell, "position:x", cell.position.x + 5, 0.05)
-	tween.tween_property(cell, "position:x", cell.position.x - 5, 0.05)
-	tween.tween_property(cell, "position:x", cell.position.x, 0.05)
+	tween.tween_property(cell, "rotation_degrees", 5, 0.05).as_relative()
+	tween.tween_property(cell, "rotation_degrees", -10, 0.05).as_relative()
+	tween.tween_property(cell, "rotation_degrees", 5, 0.05).as_relative()
 
-
-func _process_explosion_queue():
-	if pending_explosions.is_empty():
-		processing_explosions = false
-		return
-
-	processing_explosions = true
-
-	# Take all explosions currently queued as this "wave"
-	var current_wave = pending_explosions.duplicate()
-	pending_explosions.clear()
-
-	# Run them all at once
-	for data in current_wave:
-		_explode(data.r, data.c, data.is_flower, data.textures)
-
-	# Wait for all animations of this wave to complete before next
-	await get_tree().create_timer(1.5).timeout
-	_process_explosion_queue()
-
-func queue_explosion(r, c, is_flower, textures):
-	pending_explosions.append({
-		"r": r,
-		"c": c,
-		"is_flower": is_flower,
-		"textures": textures
-	})
-	if not processing_explosions:
-		_process_explosion_queue()
+func _finalize_growth(cell, is_flower: bool, textures: Array):
+	# Ensure texture matches click_count AFTER tween ends
+	var index = clamp(cell.click_count - 1, 0, 3)
+	cell.set_texture(textures[index])
 
 func _explode(r, c, is_flower, textures):
 	var cell = grid[r][c]
@@ -247,20 +227,50 @@ func _explode(r, c, is_flower, textures):
 						.bind(neighbor, is_flower, textures))
 
 
-func _finalize_growth(cell, is_flower: bool, textures: Array):
-	# Ensure texture matches click_count AFTER tween ends
-	var index = clamp(cell.click_count - 1, 0, 3)
-	cell.set_texture(textures[index])
-
 func switch_turn():
+	move_count += 1
+		# only start checking after 2 moves
+	if move_count >= 2:
+		var winner = await check_game_over()
+		if winner != "":
+			print(winner, " wins!")
+			game_won_panel.visible = true
+			game_won_label.text = winner + " WINS!!"
+			return
+			
 	light_turn = !light_turn
 	if(light_turn):
 		rich_text_label.text = "  PLAYER 1"
 	else:
 		rich_text_label.text = "  PLAYER 2"
 		
+func check_game_over() -> String:
+	var has_flowers := false
+	var has_ai_plants := false
+
+	for r in range(rows):
+		for c in range(cols):
+			var tex = grid[r][c].get_texture()
+			if tex == null:
+				continue
+			if tex in [Flower01, Flower02, Flower03, Flower04]:
+				has_flowers = true
+			else:
+				has_ai_plants = true
+
+	if has_flowers and not has_ai_plants:
+		return "Player 1"
+	elif has_ai_plants and not has_flowers:
+		return "PLAYER 2"
+	else:
+		return ""  # game still going
 
 func _on_exit_2m_pressed():
+	click.play()	
+	await get_tree().create_timer(.2).timeout	
+	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+
+func _on_back_pressed():
 	click.play()	
 	await get_tree().create_timer(.2).timeout	
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")

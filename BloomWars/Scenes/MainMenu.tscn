@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://bms700jg2msq1"]
+[gd_scene load_steps=17 format=3 uid="uid://bms700jg2msq1"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_afj6i"]
 [ext_resource type="FontFile" uid="uid://ck7n44exy53bg" path="res://Assets/Fonts/Gamer.ttf" id="3_3nack"]
 [ext_resource type="Script" path="res://Scripts/AudioControl.gd" id="4_bjmfv"]
 [ext_resource type="AudioStream" uid="uid://deqp4kowprer2" path="res://Assets/Vfx/BloomCalm.mp3" id="5_8epet"]
-[ext_resource type="Script" path="res://Scripts/CheckButton.gd" id="5_umdro"]
 [ext_resource type="AudioStream" uid="uid://b5jw7bnop86r2" path="res://Assets/Vfx/ClickAndSplit.wav" id="6_1v62f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkp56"]
@@ -61,9 +60,6 @@ thickness = 6
 color = Color(0.992188, 0.894531, 0.460938, 1)
 thickness = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f57ut"]
-bg_color = Color(0.136719, 0.238281, 0.117188, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_du13w"]
 bg_color = Color(0.992188, 0.894531, 0.460938, 1)
 
@@ -95,7 +91,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qkp56")
 
 [node name="MainBtns" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -159,21 +154,32 @@ text = "EXIT"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -494.5
-offset_top = -450.0
-offset_right = 494.5
-offset_bottom = -184.0
+offset_left = -277.5
+offset_right = 277.5
+offset_bottom = 115.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_colors/font_color = Color(0.136719, 0.238281, 0.117188, 1)
 theme_override_fonts/font = ExtResource("3_3nack")
-theme_override_font_sizes/font_size = 300
+theme_override_font_sizes/font_size = 140
 text = "BLOOM WARS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credit" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -44.0
+offset_right = 145.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.136719, 0.238281, 0.117188, 1)
+theme_override_fonts/font = ExtResource("3_3nack")
+theme_override_font_sizes/font_size = 30
+text = "♪ BLOOM | PROD. BY LOFILOW "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -184,49 +190,44 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -430.5
-offset_top = -170.0
-offset_right = 430.5
-offset_bottom = 332.0
+offset_left = -266.5
+offset_top = -151.0
+offset_right = 266.5
+offset_bottom = 151.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_h8p8j")
 
 [node name="SettingsLabel" type="Label" parent="SettingsPanel"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -302.0
-offset_top = -286.0
-offset_right = 325.0
-offset_bottom = -124.0
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 67.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
 theme_override_constants/shadow_offset_y = 10
 theme_override_constants/shadow_outline_size = 15
 theme_override_fonts/font = ExtResource("3_3nack")
-theme_override_font_sizes/font_size = 120
+theme_override_font_sizes/font_size = 80
 text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SettingsPanel"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -286.5
-offset_top = -118.0
-offset_right = 286.5
-offset_bottom = 222.0
+anchor_bottom = 1.0
+offset_left = -172.0
+offset_top = -190.0
+offset_right = 172.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="SettingsLabel" type="Label" parent="SettingsPanel/VBoxContainer"]
 layout_mode = 2
@@ -242,8 +243,8 @@ vertical_alignment = 1
 [node name="AudioControl" type="HSlider" parent="SettingsPanel/VBoxContainer/SettingsLabel"]
 layout_mode = 2
 offset_top = 48.0
-offset_right = 573.0
-offset_bottom = 64.0
+offset_right = 342.0
+offset_bottom = 67.0
 size_flags_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_47dgq")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_tbehd")
@@ -252,28 +253,6 @@ min_value = -35.0
 max_value = 0.0
 script = ExtResource("4_bjmfv")
 audio_bus_name = "Master"
-
-[node name="CheckButton" type="CheckButton" parent="SettingsPanel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 2
-theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
-theme_override_colors/font_pressed_color = Color(0.992188, 0.894531, 0.460938, 1)
-theme_override_colors/font_hover_color = Color(0.992188, 0.894531, 0.460938, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.992188, 0.894531, 0.460938, 1)
-theme_override_colors/font_focus_color = Color(0.992188, 0.894531, 0.460938, 1)
-theme_override_colors/font_disabled_color = Color(0.992188, 0.894531, 0.460938, 1)
-theme_override_colors/font_outline_color = Color(0.992188, 0.894531, 0.460938, 1)
-theme_override_fonts/font = ExtResource("3_3nack")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_f57ut")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_f57ut")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_f57ut")
-theme_override_styles/hover = SubResource("StyleBoxFlat_f57ut")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_f57ut")
-theme_override_styles/focus = SubResource("StyleBoxFlat_f57ut")
-button_pressed = true
-text = "FullScreen"
-script = ExtResource("5_umdro")
 
 [node name="Back" type="Button" parent="SettingsPanel/VBoxContainer"]
 layout_mode = 2
@@ -297,56 +276,51 @@ stream = ExtResource("5_8epet")
 autoplay = true
 
 [node name="GameModePanel" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -430.5
-offset_top = -170.0
-offset_right = 430.5
-offset_bottom = 332.0
+offset_left = -266.5
+offset_top = -151.0
+offset_right = 266.5
+offset_bottom = 151.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_h8p8j")
 
 [node name="GameModeLabel" type="Label" parent="GameModePanel"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -302.0
-offset_top = -286.0
-offset_right = 325.0
-offset_bottom = -124.0
+offset_left = -142.5
+offset_right = 142.5
+offset_bottom = 67.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
 theme_override_constants/shadow_offset_y = 10
 theme_override_constants/shadow_outline_size = 15
 theme_override_fonts/font = ExtResource("3_3nack")
-theme_override_font_sizes/font_size = 120
+theme_override_font_sizes/font_size = 80
 text = "GAME MODE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MainBtns2" type="VBoxContainer" parent="GameModePanel"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -229.5
-offset_top = -121.0
-offset_right = 229.5
-offset_bottom = 103.0
+anchor_bottom = 1.0
+offset_left = -171.5
+offset_top = -190.0
+offset_right = 172.5
+offset_bottom = -21.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="PVP" type="Button" parent="GameModePanel/MainBtns2"]
 layout_mode = 2
@@ -405,7 +379,6 @@ stream = ExtResource("6_1v62f")
 [connection signal="pressed" from="MainBtns/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MainBtns/Exit" to="." method="_on_exit_pressed"]
 [connection signal="value_changed" from="SettingsPanel/VBoxContainer/SettingsLabel/AudioControl" to="SettingsPanel/VBoxContainer/SettingsLabel/AudioControl" method="_on_value_changed"]
-[connection signal="toggled" from="SettingsPanel/VBoxContainer/CheckButton" to="SettingsPanel/VBoxContainer/CheckButton" method="_on_toggled"]
 [connection signal="pressed" from="SettingsPanel/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="finished" from="Music" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="pressed" from="GameModePanel/MainBtns2/PVP" to="." method="_on_pvp_pressed"]

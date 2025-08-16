@@ -6,7 +6,10 @@ var ai_enabled := true  # set to false for PvP
 @onready var click = $Click
 @onready var fail_click = $FailClick
 @onready var rich_text_label = $BackGround/ScoreBoard2/RichTextLabel
-
+@onready var game_won_panel = $BackGround/GameWonPanel
+@onready var game_won_label = $BackGround/GameWonPanel/GameWonLabel
+var move_count := 0
+var is_ai_thinking := false
 @onready var Flower01 = preload("res://Assets/Textures/Plants/Flower01.png")
 @onready var Flower02 = preload("res://Assets/Textures/Plants/Flower02.png")
 @onready var Flower03 = preload("res://Assets/Textures/Plants/Flower03.png")
@@ -57,6 +60,7 @@ var player_can_move := false  # Track if the player can make a move
 @onready var D24 = $BackGround/GridContainerD/Label25
 
 func _ready():
+	game_won_panel.visible = false
 	grid = [
 		[D00, D01, D02, D03, D04],
 		[D05, D06, D07, D08, D09],
@@ -250,29 +254,62 @@ func _explode(r, c, is_flower, textures):
 
 func switch_turn():
 	light_turn = !light_turn
-	player_can_move = light_turn  # player moves only on light’s turn
-	if(light_turn):
+	player_can_move = light_turn
+
+	if light_turn:
 		rich_text_label.text = "   PLAYER "
 	else:
 		rich_text_label.text = " COMPUTER"
-	if ai_enabled and not light_turn:
-		if check_game_over():
-			print("AI wins!")
+
+	# increase moves played
+	move_count += 1
+
+	# only start checking after 2 moves
+	if move_count >= 2:
+		var winner = await check_game_over()
+		if winner != "":
+			print(winner, " wins!")
+			game_won_panel.visible = true
+			game_won_label.text = winner + " WINS!!"
+			player_can_move = false
 			return
-		get_tree().create_timer(0.8).timeout.connect(func():
-			ai_make_move()
-		)
 
+	# let AI move if it's AI's turn
+	if ai_enabled and not light_turn and not is_ai_thinking:
+		is_ai_thinking = true
+		await get_tree().create_timer(0.8).timeout
+		await ai_make_move()  # Make sure ai_make_move is awaitable
+		is_ai_thinking = false
 
-func check_game_over():
+func check_game_over() -> String:
+	await get_tree().create_timer(1).timeout				
+	var has_flowers := false
+	var has_ai_plants := false
+
 	for r in range(rows):
 		for c in range(cols):
-			if grid[r][c].get_texture() in [Flower01, Flower02, Flower03, Flower04]:
-				return false
-	return true
+			var tex = grid[r][c].get_texture()
+			if tex == null:
+				continue
+			if tex in [Flower01, Flower02, Flower03, Flower04]:
+				has_flowers = true
+			else:
+				has_ai_plants = true
+
+	if has_flowers and not has_ai_plants:
+		return "Player"
+	elif has_ai_plants and not has_flowers:
+		return "AI"
+	else:
+		return ""  # game still going
+
+
 
 # -------- AI WITH FORESIGHT --------
 func ai_make_move():
+	if light_turn:
+		return
+		
 	var best_move = null
 	var best_score = -99999
 

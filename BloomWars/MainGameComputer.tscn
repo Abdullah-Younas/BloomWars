@@ -102,10 +102,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -395.0
-offset_top = -395.0
-offset_right = 395.0
-offset_bottom = 395.0
+offset_left = -195.0
+offset_top = -195.0
+offset_right = 195.0
+offset_bottom = 195.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 10
@@ -113,176 +113,201 @@ theme_override_constants/v_separation = 10
 columns = 5
 
 [node name="Label" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label2" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label3" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label4" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label5" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label6" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label7" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label8" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label9" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label10" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label11" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label12" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label13" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label14" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label15" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label16" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label17" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label18" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label19" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label20" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label21" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label22" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label23" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label24" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
 
 [node name="Label25" type="Label" parent="BackGround/GridContainerD"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_b68pt")
 script = ExtResource("2_v7fbw")
@@ -294,13 +319,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -90.0
-offset_top = -200.0
-offset_right = 410.0
-offset_bottom = 300.0
+offset_left = -75.0
+offset_top = -150.0
+offset_right = 425.0
+offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_pb0lf")
 
 [node name="Exit2M" type="Button" parent="BackGround/ExitButton2"]
@@ -343,11 +368,11 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -100.0
-offset_right = 400.0
+offset_left = -75.0
+offset_right = 425.0
 offset_bottom = 500.0
 grow_horizontal = 2
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_pb0lf")
 flip_v = true
 
@@ -379,10 +404,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -332.0
-offset_top = -181.5
-offset_right = 332.0
-offset_bottom = 181.5
+offset_left = -266.5
+offset_top = -151.0
+offset_right = 266.5
+offset_bottom = 151.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_j7634")
@@ -392,15 +417,15 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -313.5
-offset_right = 313.5
-offset_bottom = 162.0
+offset_left = -198.5
+offset_right = 198.5
+offset_bottom = 83.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.992188, 0.894531, 0.460938, 1)
 theme_override_constants/shadow_offset_y = 10
 theme_override_constants/shadow_outline_size = 15
 theme_override_fonts/font = ExtResource("4_qetpe")
-theme_override_font_sizes/font_size = 120
+theme_override_font_sizes/font_size = 100
 text = "YOUU WON!!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -412,10 +437,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -286.0
-offset_top = -340.0
-offset_right = 287.0
-offset_bottom = -45.0
+offset_left = -171.5
+offset_top = -106.0
+offset_right = 172.5
+offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 2
